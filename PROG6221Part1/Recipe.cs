@@ -9,13 +9,13 @@ namespace PROG6221Part1
    class Recipe
     {
         public string Name { get; set; }
-        public List<Ingredient> Ingredients { get; set; }
-        public List<string> Steps { get; set; }
+        public Ingredient[] Ingredients { get; set; }
+        public string[] Steps { get; set; }
 
         public Recipe()
         {
-            Ingredients = new List<Ingredient>();
-            Steps = new List<string>(); 
+            Ingredients = new Ingredient[0];
+            Steps = new string[0]; 
         }
     }
 }
