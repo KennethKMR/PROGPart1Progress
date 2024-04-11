@@ -8,14 +8,14 @@ namespace PROG6221Part1
 {
    class Recipe
     {
-        public string Name { get; set; }
-        public Ingredient[] Ingredients { get; set; }
-        public string[] Steps { get; set; }
+        public string Name { get; set; } //Name of the recipe
+        public Ingredient[] Ingredients { get; set; } //Array of Ingredients
+        public string[] Steps { get; set; } //Array of Steps for the ingredients
 
         public Recipe()
         {
-            Ingredients = new Ingredient[0];
-            Steps = new string[0]; 
+            Ingredients = new Ingredient[0]; //This initializes the Ingredients array with the size of zero
+            Steps = new string[0]; //This initializes the Steps array with the size of zero
         }
     }
 }
