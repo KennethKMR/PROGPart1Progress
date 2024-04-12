@@ -19,10 +19,10 @@ namespace PROG6221Part1
                 //Prompt the user to enter the number of ingredients
 
                 Console.WriteLine("Enter the number of ingredients: ");
-                int numIngredients = int.Parse(Console.ReadLine());
+                int numIngredients;
 
                 //A loop that will continously ask the user to enter the correct value
-                while (!int.TryParse(Console.ReadLine(), out numIngredients) || numIngredients <=0);
+                while (!int.TryParse(Console.ReadLine(), out numIngredients) || numIngredients <= 0)
                 {
                     Console.WriteLine("Try that again, make sure you are entering a positive number for the number of ingredients: ");
                 }
@@ -43,6 +43,7 @@ namespace PROG6221Part1
                     string quantityInput;
                     do
                     {
+                    //Promp the user to enter the quantity of the ingredient
                         Console.WriteLine($"Enter the quantity of {ingredient.Name}:");
                         quantityInput = Console.ReadLine();
                     } while (!double.TryParse(quantityInput, out quantity) || quantity <= 0);
@@ -115,13 +116,13 @@ namespace PROG6221Part1
                     //This will prompt the user to either reset the recipe or not
             if (resetOption == "Y")
                     {
-                        ResetQuantities(recipe);    //This resets the quantities to the original values
+                        ResetQuantities(recipe); //This resets the quantities to the original values
                         Console.WriteLine("\nQuantities have been reset to their original values.");
                     }
                 }
             else
                 {
-                    Console.WriteLine("The quantities have not been reset.");
+                    Console.WriteLine("No scaling has been added to the recipe.");
                 }
                     //Ask the user if they would like to clear the recipe and start a new one
                     Console.WriteLine("\nWould you like to clear all your data and start a new recipe? (Y/N)");
