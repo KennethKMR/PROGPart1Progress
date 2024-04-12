@@ -86,6 +86,67 @@ namespace PROG6221Part1
                 {
                     Console.WriteLine($"{i + 1}. {recipe.Steps[i]}");
                 }
+                //The following will be for the feature that allows the recipe to scale
+                Console.WriteLine("\nWould you like to scale the recipe? (Enter '0,5' to cut quantity in half, '2' to double quantity, '3' to triple quantity, or just press enter if you wish not to scale the recipe.)");
+                string scaleOption = Console.ReadLine();
+                //If statement that scales the recipe according to the users input
+            if (scaleOption == "0.5" || scaleOption == "2" || scaleOption == "3")
+                {
+                    double scaleFactor;
+                    while (!double.TryParse(Console.ReadLine(),out scaleFactor))
+                    {
+                        Console.WriteLine("Try that again, please enter a valid number in order to scale the recipe: ");
+                        scaleOption = Console.ReadLine();
+                    }
+                    //This takes the scaled recipe and displays it back to the user
+                    ScaleRecipe(recipe, scaleFactor);
+
+                    Console.WriteLine("\nScaled Recipe details:");
+                    Console.WriteLine($"Name: {recipe.Name}");
+
+                    Console.WriteLine("\nIngredients:");
+                    //This gives the user the option to reset the quantities in their recipe
+            foreach (var ingredient in recipe.Ingredients)
+                    {
+                        Console.WriteLine($"{ingredient.Quantity} {ingredient.Unit} of {ingredient.Name}");
+                    }
+                    Console.WriteLine("\nWould you like to reset the quantities to their original values? (Y/N)");
+                    string resetOption = Console.ReadLine().ToUpper();
+                    //This will prompt the user to either reset the recipe or not
+            if (resetOption == "Y")
+                    {
+                        ResetQuantities(recipe);    //This resets the quantities to the original values
+                        Console.WriteLine("\nQuantities have been reset to their original values.");
+                    }
+                }
+            else
+                {
+                    Console.WriteLine("The quantities have not been reset.");
+                }
+                    //Ask the user if they would like to clear the recipe and start a new one
+                    Console.WriteLine("\nWould you like to clear all your data and start a new recipe? (Y/N)");
+                    string clearOption = Console.ReadLine().ToUpper();
+            if (clearOption != "Y")
+                {
+                    Console.WriteLine("I hope you enjoy your very own personal recipe.");
+                    break; //This will exit the loop if the user chooses not to reset the recipe.
+                }     
+            }
+        }
+        //Method used to scale the recipe
+        static void ScaleRecipe(Recipe recipe, double scaleFactor)
+        {
+            foreach (var ingredient in recipe.Ingredients)
+            {
+                ingredient.Quantity = scaleFactor;
+            }
+        }
+        //Method used to Reset the ingredient quantities
+        static void ResetQuantities(Recipe recipe)
+        {
+            for (int i = 0;i < recipe.Ingredients.Length;i++)
+            {
+                recipe.Ingredients[i].Quantity = recipe.OriginalQuantities[i];
             }
         }
     }
