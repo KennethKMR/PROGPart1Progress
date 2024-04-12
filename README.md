@@ -18,8 +18,8 @@ Now only if the use chose to scale the recipe, only then will they be presented 
 The user will be prompt to select (Y or N) when asked if they would like to reset their scaled values back to the original values.
 If the user selects Yes, their scaled values will be reset to the original.
 If the user selects no then the next final prompt will pop up.
-This promp either displays if the user has selected (N) when asked if they would like to scale the recipe, or this prompt will display once the users recipe has been scaled.
-This promp allows the user to Reset the entire recipe and start a new recipe, they are prompted with a simple (Y / N).
+This prompt either displays if the user has selected (N) when asked if they would like to scale the recipe, or this prompt will display once the users recipe has been scaled.
+This prompt allows the user to Reset the entire recipe and start a new recipe, they are prompted with a simple (Y / N).
 If answered (Y) then the user will have the option to start from scractch with creating their recipe. This cycle can continue infinitely, because its a loop and will only end once the user chooses (N)
 If answered (N) the user will be greeted with the text "I hope you enjoy your very own personal recipe."
 And then the program will end.
