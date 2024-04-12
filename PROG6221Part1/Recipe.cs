@@ -11,6 +11,7 @@ namespace PROG6221Part1
         public string Name { get; set; } //Name of the recipe
         public Ingredient[] Ingredients { get; set; } //Array of Ingredients
         public string[] Steps { get; set; } //Array of Steps for the ingredients
+        public double[] OriginalQuanitities { get; set; } //Array to store original quantities of ingredients
 
         public Recipe()
         {
